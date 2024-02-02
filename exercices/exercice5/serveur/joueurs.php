@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 if($_GET['action'] == "equipe")
 {
 	echo '<equipes>';
