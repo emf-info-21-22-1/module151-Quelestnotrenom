@@ -5,7 +5,7 @@
  * @version 1.0 / 20-SEP-2013
  */
 
-var BASE_URL = "https://www.joyee02.emf-informatique.ch/exercices5/serveur/joueurs.php";
+var BASE_URL = "http://localhost:8080/serveur/database.php";
 
 /**
  * Fonction permettant de charger les données d'équipe.
