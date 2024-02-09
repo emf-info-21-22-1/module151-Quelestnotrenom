@@ -12,14 +12,13 @@
  * @param {type} jqXHR
  */
 function chargerTeamSuccess(data, text, jqXHR) {
-	// Appelé lorsque la liste des équipes est reçue
     var cmbEquipes = document.getElementById("cmbEquipes");
     cmbEquipes.options.length = 0;
     $(data).find("equipe").each(function() {
         var equipe = new Equipe();
         equipe.setPk($(this).find("id").text());
         equipe.setNom($(this).find("nom").text());
-        cmbEquipes.options[cmbEquipes.options.length] = new Option(equipe, JSON.stringify(equipe));
+		cmbEquipes.options[cmbEquipes.options.length] = new Option(equipe, JSON.stringify(equipe));
     });
 }
 
@@ -30,17 +29,14 @@ function chargerTeamSuccess(data, text, jqXHR) {
  * @param {type} jqXHR
  */
 function chargerPlayerSuccess(data, text, jqXHR) {
-	// Appelé lorsque la liste des joueurs est reçue
     var cmbJoueurs = document.getElementById("cmbJoueurs");
-    
+    cmbJoueurs.options.length = 0;	
     $(data).find("joueur").each(function() {
         var joueur = new Joueur();
-        joueur.setNom($(this).find("nom").text());
         joueur.setPoints($(this).find("points").text());
-        cmbJoueurs.options[cmbJoueurs.options.length] = new Option(joueur, JSON.stringify(joueur));
+        joueur.setNom($(this).find("nom").text());
+		cmbJoueurs.options[cmbJoueurs.options.length] = new Option(joueur, JSON.stringify(joueur));
     });
-	// A COMPLETER!!! selon la logique suivante:
-	// cmbJoueurs.options[cmbJoueurs.options.length] = new Option(<ce qui sera affiché>, <la valeur de la cellule>));
 }
 
 /**
@@ -83,18 +79,13 @@ $(document).ready(function() {
         chargerTeam(chargerTeamSuccess, chargerTeamError);
     });
 
-	// Ce qui se passe lorsque l'on sélectionne une équipe
-    cmbEquipes.change(function(event) {
+    cmbEquipes.change(function(event) {	
         equipe = this.options[this.selectedIndex].value;
         chargerPlayers(JSON.parse(equipe).pk, chargerPlayerSuccess, chargerPlayerError);
-       
     });
-	
-	// Ce qui se passe lorsque l'on sélectionne une joueur
     cmbJoueurs.change(function(event) {
         joueur = this.options[this.selectedIndex].value;
         alert(JSON.parse(joueur).nom + ": " + JSON.parse(joueur).points + " points");
-
     });
 });
 
