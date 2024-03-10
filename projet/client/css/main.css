@@ -1,0 +1,77 @@
+body.background {
+    background-color: #fafafa; /* Gris très clair */
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+
+
+/* Style pour la barre de navigation */
+.navbar .nav-button {
+  display: inline-block; /* Aligns elements in a line and allows margin */
+  padding: 14px 16px; /* Padding to make it look like a button */
+  margin-right: 10px; /* Spacing between the buttons */
+  text-decoration: none; /* Removes the underline from links */
+  font-size: 17px; /* Font size to match your button styling */
+  color: white; /* Text color */
+  background-color: #333; /* Background color */
+  border: none; /* No border */
+  cursor: pointer; /* Mouse cursor becomes a hand symbol */
+}
+
+.navbar .nav-button:hover {
+  background-color: #ddd; /* Background color on hover */
+  color: black; /* Text color on hover */
+}
+
+/* This will remove margin for the last button */
+.navbar .nav-button:last-child {
+  margin-right: 0;
+}
+
+h1 {
+  color: #444; /* Couleur du texte pour le titre h1 */
+  text-align: center; /* Centrage du titre h1 */
+  margin-bottom: 30px; /* Espace en dessous du titre h1 */
+}
+
+#Acccontent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f5f5f5; /* Couleur de fond légère */
+}
+
+.champion {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour la profondeur */
+  border-radius: 10px; /* Bordures arrondies */
+  overflow: hidden; /* Garantit que les enfants ne débordent pas */
+  background-color: #ffffff; /* Fond blanc pour les fiches */
+  width: 300px; /* Largeur fixe pour toutes les fiches */
+}
+
+.champion img {
+  width: 100%; /* Assure que l'image couvre la largeur du div */
+  height: auto; /* Garde le ratio de l'image */
+  border-bottom: 1px solid #eaeaea; /* Ligne de séparation */
+}
+
+.champion h3 {
+  color: #333; /* Couleur de texte foncée */
+  padding: 10px 15px; /* Espacement intérieur */
+  margin: 0; /* Réinitialise les marges */
+  background-color: #eaeaea; /* Fond légèrement différent pour le titre */
+  font-family: Arial, sans-serif; /* Police de caractères */
+}
+
+.champion p {
+  padding: 5px 15px; /* Espacement intérieur */
+  margin: 5px 0; /* Marges verticales */
+  color: #666; /* Couleur de texte plus claire */
+  font-size: 14px; /* Taille de police */
+  line-height: 1.5; /* Hauteur de ligne pour la lisibilité */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police de caractères */
+}
+
