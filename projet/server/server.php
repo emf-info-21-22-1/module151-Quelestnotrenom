@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == "champion") {
             echo $Ctrl->getChampion();
-        }else{
+        } else {
             phpinfo();
         }
 
@@ -28,19 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 }
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['action'])) {
-
+        if ($_POST['action'] == "create") {
+            $Ctrl->createChampion($_POST['name'], $_POST['image'], $_POST['description'], $_POST['mana'], $_POST['type'], $_POST['roles'], $_POST['region']);
+        }
         if ($_POST['action'] == "register") {
 
             echo $Ctrl->registerUser(new Users($_POST['username'], $_POST['password']));
         }
         if ($_POST['action'] == "checkLogin") {
-            
-            if(isset($_SESSION['nom'])){
-                                
-            }else{
+
+            if (isset($_SESSION['nom']) && isset($_SESSION['id'])) {
+                http_response_code(200);
+            } else {
                 http_response_code(401);
             }
-            print_r($_SESSION);
 
         }
         if ($_POST['action'] == "login") {

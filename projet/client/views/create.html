@@ -1,5 +1,68 @@
 <!DOCTYPE html>
-<html>
 <head>
+  <title>Creation</title>
   <link rel="stylesheet" href="css/main.css"> <!-- Assurez-vous que le chemin est correct -->
+</head>
+<h1>League of Creations</h1>
+<div id="bar" class="navbar"> <!-- Ajout de la classe "navbar" -->
+</div>
+<div id="createisle">
+  <label>Name</label>
+  <input id="name" type="text">
+  <br>
+  <label>Image</label>
+  <input id="image" type="text">
+  <br>
+  <label>Description</label>
+  <input id="description" type="text">
+  <br>
+  <label>Mana</label>
+  <input id="mana" type="checkbox">
+  <br>
+  <label>Region</label>
+  <select id="region">
+    <option value="default">Select region</option>
+    <option value="1">Bandle</option>
+    <option value="2">Bilgewater</option>
+    <option value="3">Demacia</option>
+    <option value="4">Freljord</option>
+    <option value="5">Ionia</option>
+    <option value="6">Ixtal</option>
+    <option value="7">Le neant</option>
+    <option value="8">Noxus</option>
+    <option value="9">Piltover</option>
+    <option value="10">Shurima</option>
+    <option value="11">Targon</option>
+    <option value="12">Zaun</option>
+    <option value="13">Ile obscures</option>
+  </select>
+  <label>Type</label>
+  <select id="type">
+    <option value="default">Select type</option>
+    <option value="1">Assasin</option>
+    <option value="2">Combatant</option>
+    <option value="3">Mage</option>
+    <option value="4">Tireur</option>
+    <option value="5">Support</option>
+    <option value="6">Tank</option>
+  </select>
+  <br>
+  <div id="roles">
+    <label>Top</label>
+    <input class="roles" value="1" type="checkbox">
+    <label>Mid</label>
+    <input class="roles" value="2" type="checkbox">
+    <label>Jungle</label>
+    <input class="roles" value="3" type="checkbox">
+    <label>Adc</label>
+    <input class="roles" value="4" type="checkbox">
+    <label>Support</label>
+    <input class="roles" value="5" type="checkbox">
+  </div>
+  <br>
+  <button onclick="ctrl.createChampion()">Add</button>
+  <button onclick="ctrl.loadAccueilCo()">Cancel</button>
+  <p id="Cresult"></p>
+</div>
+
   

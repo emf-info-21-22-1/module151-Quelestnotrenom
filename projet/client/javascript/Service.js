@@ -1,4 +1,4 @@
-var BASE_URL = "../../server/server.php";
+var BASE_URL = "../server/server.php";
 
 class Service {
   constructor() {
@@ -37,8 +37,7 @@ class Service {
   }
   login(username, password, successCallback, errorCallBack) {
     $.ajax({
-      type: "POST",      
-      dataType: "XML",
+      type: "POST",
       data: "action=login&username=" + username + "&password=" + password,
       url: BASE_URL,
       success: successCallback,
@@ -57,10 +56,19 @@ class Service {
   disconnect(successCallback) {
     $.ajax({
       type: "POST",
-      dataType: "XML",
       data: "action=deconnexion",
       url: BASE_URL,
       success: successCallback
+    });
+  }
+  createChampion(name, image,description, mana,roles,region,type,successCallback, errorCallback){
+    $.ajax({
+      type: "POST",
+      dataType: "XML",
+      data: "action=create&name=" +name+"&image="+image+"&description="+description+"&mana="+mana+"&type="+type+"&roles="+roles+"&region="+region,
+      url: BASE_URL,
+      success: successCallback,
+      error: errorCallback
     });
   }
 

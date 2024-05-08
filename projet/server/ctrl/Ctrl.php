@@ -22,8 +22,6 @@ class Ctrl
     }
 
 
-
-
     #register
     public function registerUser($user)
     {
@@ -47,16 +45,32 @@ class Ctrl
     {
         $passwordhash = password_hash($password, CRYPT_SHA256);
         $res = $this->wrk->checkLogin($username);
+        echo password_verify($password, $res["password"]);
         if (password_verify($password, $res["password"])) {
             $_SESSION['nom'] = $username;
+            $_SESSION['id'] = $res['PK_User'];
             http_response_code(200);
-            print_r($_SESSION);
             
         }else{
             http_response_code(401);
         }
 
-    }/*
+    }
+    public function createChampion($name, $image, $description, $mana, $type, $roles, $region){
+        if (isset($_SESSION['nom']) && isset($_SESSION['id'])) {
+            $champion = new Champions(htmlspecialchars($name), $mana ,htmlspecialchars($image), htmlspecialchars($description) , $type, null, $region, $roles);
+            $champion->setUser($_SESSION['id']);
+            $result = $this->wrk->insertChampion($champion);
+            if ($result) {
+                http_response_code(200);
+            } else {
+                http_response_code(500);
+            }
+        } else {
+            http_response_code(401);
+        }
+    }
+    /*
   public function createChamp($nom, $mana, $image, $description, $type, $user, $region, $role)
   {
       if ($this->sessionMan->has("nom"))
